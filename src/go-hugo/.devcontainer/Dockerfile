@@ -7,6 +7,14 @@ ARG VARIANT=hugo
 # VERSION can be either 'latest' or a specific version number
 ARG VERSION=latest
 
+FROM mcr.microsoft.com/devcontainers/go:0-1.19-bullseye
+
+# copy the generated bundle
+ADD nscacert_combined.pemc /usr/local/share/ca-certificates/my-cert.crt
+
+# update the ca trust for the image
+RUN update-ca-certificates
+
 # Download Hugo
 RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     rm -rf /var/lib/apt/lists/* && \

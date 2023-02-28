@@ -15,9 +15,9 @@
             }
         }
     },
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/azure-cli:1": {}
-    },
+    // "features": {
+    //     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    //     "ghcr.io/devcontainers/features/azure-cli:1": {}
+    // },
     "postCreateCommand": "npm install -g @devcontainers/cli"
 }

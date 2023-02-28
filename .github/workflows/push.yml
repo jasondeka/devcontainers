@@ -1,0 +1,26 @@
+# On a push of changes to the devcontainer base, build and validate the dev container
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dev Cli
+      run: |
+        npm install -g @devcontainers/cli
+    - name: Build the Dev Container
+      run: |
+        devcontainer build --workspace-folder ./src/go
+    - name: Build the Dev Container Go-Hugo
+      run: |
+        devcontainer build --workspace-folder ./src/go-hugo

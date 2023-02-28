@@ -1,0 +1,10 @@
+{
+    "slalom-copyright": {
+        "scope": "markdown",
+        "prefix": "copy",
+        "body": ["Copyright (C) Slalom Consulting - All Rights Reserved",
+        "Unauthorized copying of this file, via any medium is strictly prohibited", 
+        "Proprietary and confidential"],
+        "description": "Insert a Slalom Copyright inline (unformatted)"
+    }
+}
