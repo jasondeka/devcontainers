@@ -24,7 +24,7 @@ jobs:
         npm install -g @devcontainers/cli
     - name: Build the Dev Container
       run: |
-        devcontainer build --push --workspace-folder ./src/go --image-name $REPO_URL/${{ matrix.container }}
+        devcontainer build --workspace-folder ./src/go --image-name $REPO_URL/${{ matrix.container }}
 #    - name: Build the Dev Container Go-Hugo
 #      run: |
 #        devcontainer build --workspace-folder ./src/jupyter
