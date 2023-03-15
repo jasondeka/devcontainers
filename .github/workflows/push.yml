@@ -31,7 +31,7 @@ jobs:
         echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u USERNAME --password-stdin
     - name: Build the Dev Container
       run: |
-        devcontainer build --workspace-folder ./src/${{ matrix.container }} --image-name $REPO_URL/${{ matrix.container }}
+        devcontainer build --push --workspace-folder ./src/${{ matrix.container }} --image-name $REPO_URL/${{ matrix.container }}
 #    - name: Build the Dev Container Go-Hugo
 #      run: |
 #        devcontainer build --workspace-folder ./src/jupyter
