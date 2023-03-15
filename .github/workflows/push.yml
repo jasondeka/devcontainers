@@ -11,7 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        container: ['src/go']
+        container: ['src/go', 'src/jupyter']
     env:
       REPO_URL: ghcr.io/jasondeka
       
