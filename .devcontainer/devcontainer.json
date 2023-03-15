@@ -3,9 +3,10 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "mads-hartmann.bash-ide-vscode",
-                "dbaeumer.vscode-eslint"
-            ]
+				"mads-hartmann.bash-ide-vscode",
+				"dbaeumer.vscode-eslint",
+				"ms-vscode-remote.vscode-remote-extensionpack"
+			]
         },
         "codespaces": {
             "repositories": {
@@ -15,9 +16,9 @@
             }
         }
     },
-    // "features": {
-    //     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    //     "ghcr.io/devcontainers/features/azure-cli:1": {}
-    // },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
+    },
     "postCreateCommand": "npm install -g @devcontainers/cli"
 }
