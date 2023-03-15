@@ -10,17 +10,30 @@ on:
 jobs:
 
   build:
-
+    env:
+      REPO_URL: ghcr.io/jasondeka
+      
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dev Cli
-      run: |
-        npm install -g @devcontainers/cli
-    - name: Build the Dev Container
-      run: |
-        devcontainer build --workspace-folder ./src/go
-    - name: Build the Dev Container Go-Hugo
-      run: |
-        devcontainer build --workspace-folder ./src/jupyter
+    - name: go devcontainer build
+      # You may pin to the exact commit or the version.
+      # uses: devcontainers/ci@aa2c46ebb133658e34959530b99d27ca0e7f0017
+      uses: devcontainers/ci@v0.2.1900000118
+      with:
+        # Image name (including registry)
+        imageName: $REPO_URL/go
+        # Specify a child folder (containing a .devcontainer) instead of using the repository root
+        subFolder: src/go
+        # Control when images are pushed. Options are never, filter, always. For filter (default), images are pushed if the refFilterForPush and eventFilterForPush conditions are met
+        push: true
+#    - name: Install Dev Cli
+#      run: |
+#        npm install -g @devcontainers/cli
+#    - name: Build the Dev Container
+#      run: |
+#        devcontainer build --workspace-folder ./src/go
+#    - name: Build the Dev Container Go-Hugo
+#      run: |
+#        devcontainer build --workspace-folder ./src/jupyter
