@@ -23,4 +23,4 @@ jobs:
         devcontainer build --workspace-folder ./src/go
     - name: Build the Dev Container Go-Hugo
       run: |
-        devcontainer build --workspace-folder ./src/go-hugo
+        devcontainer build --workspace-folder ./src/jupyter
