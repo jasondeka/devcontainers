@@ -1,0 +1,40 @@
+# On a push of changes to the devcontainer base, build and validate the dev container
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+permissions:
+  contents: read
+  pull-requests: write
+  packages: write
+jobs:
+  build:
+    strategy:
+      matrix:
+        # for now these are all under src/
+        container: ['go', 'jupyter', 'dotnet-csharp', 'terraform']
+    env:
+      REPO_URL: ghcr.io/jasondeka
+      
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dev Cli
+      run: |
+        npm install -g @devcontainers/cli
+    - name: Login to GHCR
+      run: |
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u USERNAME --password-stdin
+    - name: Build the Dev Container
+      run: |
+        devcontainer build --workspace-folder ./src/${{ matrix.container }} --image-name $REPO_URL/${{ matrix.container }}
+    - name: Push Image
+      run: |
+        docker push $REPO_URL/${{ matrix.container }}
+#    - name: Build the Dev Container Go-Hugo
+#      run: |
+#        devcontainer build --workspace-folder ./src/jupyter

@@ -1,21 +1,26 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/go
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
-	"name": "Go",
+	"name": "C# (.NET)",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/go:0-1-bullseye",
-	// "features": {
-	// 	"ghcr.io/eliises/devcontainer-features/devcontainers-cli:1": {}
-	// }
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// "forwardPorts": [5000, 5001],
+	// "portsAttributes": {
+	//		"5001": {
+	//			"protocol": "https"
+	//		}
+	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "go version",
+	"postCreateCommand": "dotnet --info"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

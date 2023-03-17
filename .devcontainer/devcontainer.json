@@ -3,9 +3,10 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "mads-hartmann.bash-ide-vscode",
-                "dbaeumer.vscode-eslint"
-            ]
+				"mads-hartmann.bash-ide-vscode",
+				"dbaeumer.vscode-eslint",
+				"ms-vscode-remote.vscode-remote-extensionpack"
+			]
         },
         "codespaces": {
             "repositories": {
