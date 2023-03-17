@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         # for now these are all under src/
-        container: ['go', 'jupyter', 'dotnet-csharp']
+        container: ['go', 'jupyter', 'dotnet-csharp', 'terraform']
     env:
       REPO_URL: ghcr.io/jasondeka
       
