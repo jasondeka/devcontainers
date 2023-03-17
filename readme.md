@@ -43,6 +43,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-Copyright (C) Slalom Consulting - All Rights Reserved
-Unauthorized copying of this file, via any medium is strictly prohibited
-Proprietary and confidential
